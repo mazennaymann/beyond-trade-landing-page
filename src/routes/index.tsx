@@ -16,16 +16,33 @@ import {
 const title = "Beyond Trade — Premium Building Materials | UAE & Egypt";
 const description =
   "22+ years supplying wood, sanitary ware, tiles, marble & granite, glass, lighting and stainless steel for palaces, villas, hotels and hospitals across the UAE and Egypt.";
+const siteUrl = "https://beyond-trade-landing-page.vercel.app";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title },
       { name: "description", content: description },
+
+      // Open Graph / Facebook / WhatsApp
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: siteUrl },
+      { property: "og:image", content: `${siteUrl}/og-image.jpg` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+
+      // Twitter Cards
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: `${siteUrl}/og-image.jpg` },
+    ],
+    links: [
+      // Favicon setup
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
     ],
   }),
   component: Index,
